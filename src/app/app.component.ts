@@ -33,9 +33,9 @@ export class AppComponent {
 
   newWishText = '';
 
-  visibleItems : WishItem[] = this.items;
+  //visibleItems : WishItem[] = this.items;
 
-  get GetVisibleItems() : WishItem[] {
+  get visibleItems() : WishItem[] {
     return this.items.filter(filters[this.listFilter]);
   }
     /*
@@ -61,35 +61,7 @@ export class AppComponent {
     this.newWishText = '';
   }
 
-  filterChanged(value: any)
-  {
-    switch(value){
-      case '1':
-        this.visibleItems = this.items.filter(item => !item.isComplete);
-        break;
-      case '2':
-        this.visibleItems = this.items.filter(item => item.isComplete);
-        break;
-      default:
-        this.visibleItems = this.items;
-    }
-/*
-    if(value == '0')
-    {
-      this.visibleItems = this.items;
-    }
-    else if(value == '1')
-    {
-      this.visibleItems = this.items.filter(item => !item.isComplete)
-    }
-    else
-    {
-      this.visibleItems = this.items.filter(item => item.isComplete)
-    }
-      */
-  }
-
-  toggleItem(e : Event)
+  toggleItem(e : Event): void
   {
     console.log(e);
   }
@@ -99,4 +71,19 @@ export class AppComponent {
     console.log(item);
     item.isComplete = !item.isComplete;
   }
+
+  /* removing as no longer using NgModel change event*/
+  //filterChanged(value: any)
+  //{
+  //  switch(value){
+  //    case '1':
+  //      this.visibleItems = this.items.filter(item => !item.isComplete);
+  //      break;
+  //    case '2':
+  //      this.visibleItems = this.items.filter(item => item.isComplete);
+  //      break;
+  //    default:
+  //      this.visibleItems = this.items;
+  //  }
+ // }
 }

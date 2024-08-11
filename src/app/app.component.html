@@ -26,13 +26,13 @@
   </div>
 
 <div class="row mt-3">
-  <div *ngIf="GetVisibleItems.length == 0; else showItems">
+  <div *ngIf="visibleItems.length == 0; else showItems">
     There are no items
   </div>
 
   <ng-template #showItems>
     <ul class="wish-list">
-      <li *ngFor="let item of GetVisibleItems; index as i">
+      <li *ngFor="let item of visibleItems; index as i">
         <div class="form-check">
           <label class="form-check-label">
             <input 
